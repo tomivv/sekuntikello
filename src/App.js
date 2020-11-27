@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { SaveProvider } from './components/context/SaveContext';
+import Timer from './components/timer/Timer';
+import Times from './components/times/Times';
+import useSave from './hooks/useSave';
 
 function App() {
+  const {saves, changeSaves} = useSave();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <SaveProvider value={changeSaves}>
+        <Timer />
+        <Times savedTimes={saves} />
+      </SaveProvider>
     </div>
   );
 }
