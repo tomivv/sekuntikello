@@ -22,3 +22,11 @@
   font-size: 16px;
   border-radius: 5px;
 }
+
+.flex {
+  display: flex;
+}
+
+.center {
+  margin: auto;
+}

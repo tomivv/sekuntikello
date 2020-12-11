@@ -6,13 +6,13 @@ import Times from './components/times/Times';
 import useSave from './hooks/useSave';
 
 function App() {
-  const {saves, changeSaves} = useSave();
+  const {saves, changeSaves, clearSaved} = useSave();
   
   return (
     <div className="container">
       <SaveProvider value={changeSaves}>
         <Timer />
-        <Times savedTimes={saves} />
+        <Times savedTimes={saves} clearSaved={clearSaved} />
       </SaveProvider>
     </div>
   );

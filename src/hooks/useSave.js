@@ -1,11 +1,15 @@
-import {useState} from 'react';
+import { useState } from "react";
 
 export default function useSave() {
-    const [saves, setSaves] = useState([]);
+  const [saves, setSaves] = useState([]);
 
-    async function changeSaves(save) {
-        setSaves([...saves, save]);
-    }
+  function changeSaves(save) {
+    setSaves([...saves, save]);
+  }
 
-    return {saves, changeSaves}
+  function clearSaved() {
+    setSaves([]);
+  }
+
+  return { saves, changeSaves, clearSaved };
 }
